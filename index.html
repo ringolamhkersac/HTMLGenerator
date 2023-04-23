@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <title>Excel Data Splitter</title>
+  <style>
+    .input-container {
+      padding: 10px;
+    }
+
+    #input {
+      height: 400px;
+    }
+
+    .result-container {
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+
+    #result {
+      white-space: pre-wrap;
+      font-family: monospace;
+      position: relative;
+      height: 500px;
+      overflow-y: auto;
+    }
+
+    #copy-btn {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 input-container">
+        <textarea id="header" name="header" class="form-control"></textarea>
+        <textarea id="input" name="input" class="form-control"></textarea>
+        <div class="row mt-4">
+          <div class="col-md-4">
+            <select class="form-control" id="delimiter">            
+              <option value="\t">Tab (\t)</option>
+              <option value=";">Semicolon (;)</option>
+              <option value=",">Comma (,)</option>
+            </select>
+          </div>
+          <div class="col-md-8">
+            <button class="btn btn-primary btn-block" id="split-btn" onclick="splitData()">Split</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 result-container">
+        <pre><code class="language-html" id="result">Result will be displayed here</code></pre>
+        <button class="btn btn-primary copy-btn" id="copy-btn" onclick="copyResult()">Copy</button>
+        <div id="error"></div>
+      </div>
+    </div>
+  </div>
+  <script src="split.js"></script>
+</body>
+
+</html>
