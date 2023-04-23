@@ -3,65 +3,108 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
   <title>Excel Data Splitter</title>
-  <style>
-    .input-container {
-      padding: 10px;
-    }
-
-    #input {
-      height: 400px;
-    }
-
-    .result-container {
-      padding: 10px;
-      border: 1px solid #ccc;
-    }
-
-    #result {
-      white-space: pre-wrap;
-      font-family: monospace;
-      position: relative;
-      height: 500px;
-      overflow-y: auto;
-    }
-
-    #copy-btn {
-      position: absolute;
-      top: 5px;
-      right: 5px;
-    }
-  </style>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-md-6 input-container">
-        <textarea id="header" name="header" class="form-control"></textarea>
-        <textarea id="input" name="input" class="form-control"></textarea>
-        <div class="row mt-4">
-          <div class="col-md-4">
-            <select class="form-control" id="delimiter">            
-              <option value="\t">Tab (\t)</option>
-              <option value=";">Semicolon (;)</option>
-              <option value=",">Comma (,)</option>
-            </select>
-          </div>
-          <div class="col-md-8">
-            <button class="btn btn-primary btn-block" id="split-btn" onclick="splitData()">Split</button>
+      <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+        <div class="sidebar-sticky">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="#" onclick="showContent('job')">Job</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="showContent('media')">Soical Media</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="showContent('rent')">Rent</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-12">
+          <select class="form-control" id="delimiter">
+            <option value="\t">Tab (\t)</option>
+            <option value=";">Semicolon (;)</option>
+            <option value=",">Comma (,)</option>
+          </select>
+        </div>
+      </nav>
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div id="job-content" class="content show">
+          <h2>Job</h2>
+          <div class="row">
+            <div class="col-md-6 input-container">
+              <textarea id="job-header" name="job-header" class="form-control"></textarea>
+              <textarea id="job-input" name="job-input" class="form-control"></textarea>
+              <div class="row mt-4">                
+                <div class="col-md-12">
+                  <button class="btn btn-primary btn-block" id="split-btn" onclick="splitData('job')">Split</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 result-container">
+              <pre><code class="language-html" id="job-result">Result will be displayed here</code></pre>
+              <button class="btn btn-primary copy-btn" id="copy-btn" onclick="copyResult('job')">Copy</button>
+              <div id="job-error"></div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-6 result-container">
-        <pre><code class="language-html" id="result">Result will be displayed here</code></pre>
-        <button class="btn btn-primary copy-btn" id="copy-btn" onclick="copyResult()">Copy</button>
-        <div id="error"></div>
-      </div>
+        <!-- Media -->
+        <div id="media-content" class="content">
+          <h2>Soical Media</h2>
+          <div class="row">
+            <div class="col-md-6 input-container">
+              <textarea id="media-header" name="media-header" class="form-control" style="height: 170px"></textarea>
+              <textarea id="media-input" name="media-input" class="form-control"></textarea>
+              <div class="row mt-4">
+                
+                <div class="col-md-12">
+                  <button class="btn btn-primary btn-block" id="split-btn" onclick="splitData('media')">Split</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 result-container">
+              <pre><code class="language-html" id="media-result">Result will be displayed here</code></pre>
+              <button class="btn btn-primary copy-btn" id="copy-btn" onclick="copyResult('media')">Copy</button>
+              <div id="error"></div>
+            </div>
+          </div>
+        </div>
+        <!-- End Media -->
+
+        <!-- End Rent -->
+        <div id="rent-content" class="content">
+          <h2>Rent</h2>
+          <div class="row">
+            <div class="col-md-6 input-container">
+              <textarea id="rent-header" name="rent-header" class="form-control" style="height: 170px"></textarea>
+              <textarea id="rent-input" name="rent-input" class="form-control"></textarea>
+              <div class="row mt-4">
+                
+                <div class="col-md-12">
+                  <button class="btn btn-primary btn-block" id="split-btn" onclick="splitData('rent')">Split</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 result-container">
+              <pre><code class="language-html" id="rent-result">Result will be displayed here</code></pre>
+              <button class="btn btn-primary copy-btn" id="copy-btn" onclick="copyResult('rent')">Copy</button>
+              <div id="error"></div>
+            </div>
+          </div>
+        </div>
+        <!-- End Rent -->
+      </main>
     </div>
   </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script src="split.js"></script>
 </body>
 
