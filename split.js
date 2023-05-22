@@ -31,8 +31,8 @@ function splitData(id) {
 
   lines.forEach((line, index) => {
     const fields = line.trim().split(delimiterRegex).map(field => field.replace(/"/g, ''));
-    console.log(fields);
     console.log(header);
+    console.log(fields);
 
     if (fields.length === header.length) {
       const obj = {};
@@ -52,9 +52,11 @@ function splitData(id) {
         });
         result.push(obj);
       }
+
+      console.log(obj);
       
     } else {
-      error.push(`Invalid data at line ${index + 2}: ${line}`);
+      error.push(`Invalid data at line ${index}: ${line}`);
     }
   });
 
@@ -144,41 +146,46 @@ function generateListing(id, data) {
                 <div class="latest_title home" style="color:black; min-height: 31px !important;">
                   ${data.channelName}
                 </div>
-                <div class="latest_description" style="float: left;">                  
-                  <a href="${data.fb_link}" target="_blank">
-                    <i style="font-size: 40px;" class="fa fa-facebook-square" aria-hidden="true"></i>
-                  </a>
-                  <a href="${data.ig_link}" target="_blank">
-                    <i style="font-size: 40px;" class="fa fa-instagram" aria-hidden="true"></i>
-                  </a>
-                  <a href="${data.youtube_link}" target="_blank">
-                    <i style="font-size: 40px;" class="fa fa-youtube-square" aria-hidden="true"></i>
-                  </a>
-                </div>
-                <div class="latest_description" style="float: right;">
-                  <a href="${data.link_1}" target="_blank">
-                    <i style="font-size: 35px;" class="fa fa-link" aria-hidden="true"></i>
-                  </a>
-                </div>
-                <div class="latest_description" style="float: right;">
-                  <a href="${data.link_2}" target="_blank">
-                    <i style="font-size: 35px;" class="fa fa-link" aria-hidden="true"></i>
-                  </a>
-                </div>
-              </div>
-            </div>`;
-  } else if (id == 'rent') {
-    // "時間戳記": "timestamp",
-    // "電郵地址": "emailAddress",
-    // "Property Heading  物業標題": "heading",
-    // "Property Type  物業種類": "type",
-    // "Community 社區": "community",
-    // "Monthly Rent  月租": "rent",
-    // "Security Deposit 按金": "deposit",
-    // "LeasingTerm 租期": "term",
-    // "Full Description 詳細描述": "desc",
-    // "Special Notes 注意事項": "notes" 
+                <div class="latest_description" style="float: left;">`;
 
+    if (data.fb_link) { 
+      html += `<a href="${data.fb_link}" target="_blank">
+                <i style="font-size: 40px;" class="fa fa-facebook-square" aria-hidden="true"></i>
+              </a>`;
+    }
+    if (data.ig_link) { 
+      html += `<a href="${data.ig_link}" target="_blank">
+                <i style="font-size: 40px;" class="fa fa-instagram" aria-hidden="true"></i>
+              </a>`;
+    }
+    if (data.youtube_link) { 
+      html += `<a href="${data.youtube_link}" target="_blank">
+                <i style="font-size: 40px;" class="fa fa-youtube-square" aria-hidden="true"></i>
+              </a>`;
+    }                              
+    html += `</div>`;              
+    if (data.youtube_link) { 
+      html += `<a href="${data.youtube_link}" target="_blank">
+                <i style="font-size: 40px;" class="fa fa-youtube-square" aria-hidden="true"></i>
+              </a>`;
+    }                 
+    if (data.link_1) { 
+      html += `<div class="latest_description" style="float: right;">
+                <a href="${data.link_1}" target="_blank">
+                  <i style="font-size: 35px;" class="fa fa-link" aria-hidden="true"></i>
+                </a>
+              </div>`;
+    }             
+    if (data.link_2) { 
+      html += `<div class="latest_description" style="float: right;">
+      <a href="${data.link_2}" target="_blank">
+        <i style="font-size: 35px;" class="fa fa-link" aria-hidden="true"></i>
+      </a>
+    </div>`;
+    }              
+    html += `</div></div>`;
+    
+  } else if (id == 'rent') {
     html = `
       <div class="col-md-6" style="box-shadow: 1px 1px 4px rgb(0 0 0 / 20%);">
         <div class="latest_content" style="margin: 15px !important;">

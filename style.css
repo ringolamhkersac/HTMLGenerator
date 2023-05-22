@@ -21,6 +21,12 @@
     display: block;
 }
 
+#last-update {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin: 10px;
+}
 /* End Main */
 
 #job-header, #media-header, #rent-header {
