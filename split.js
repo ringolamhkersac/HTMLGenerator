@@ -3,7 +3,8 @@ $('#job-header').text(`時間戳記	Company Name	Employment Type	Job Title	Job D
 /* End Job */
 
 /* Media */
-$('#media-header').text('時間戳記	電郵地址	Type (種類)	Name of your Social Media (專頁/頻道名稱) 	Which social media are you using now ( 您用緊邊一個社交媒體 )??	Youtube Channel Link  	Facebook Page / Group Link	Instagram Link 	Others Link 1	Others Link 2');
+// $('#media-header').text('時間戳記	電郵地址	Type (種類)	Name of your Social Media (專頁/頻道名稱) 	Which social media are you using now ( 您用緊邊一個社交媒體 )??	Youtube Channel Link  	Facebook Page / Group Link	Instagram Link 	Others Link 1	Others Link 2');
+$('#media-header').text('時間戳記	電郵地址	Type (種類)	Name of your Social Media (專頁/頻道名稱) 	Which social media are you using now ( 您用緊邊一個社交媒體 )??	Youtube Channel Link  	Facebook Page / Group Link	Instagram Link 	Others Link 1	Others Link 2	本人及其social media （Facebook, Instagram or youtube) 同意卡加里香港人會館將轉載及介紹其social media。	');
 /* End Media */
 
 /* Rent */
@@ -75,6 +76,8 @@ function splitData(id) {
 function generateListing(id, data) {
   data = data[0];
   let = html = "";
+
+  console.log('generateListing', data);
 
   if (id == 'job') {
     const jobTitle = data.jobTitle;
@@ -184,7 +187,7 @@ function generateListing(id, data) {
     </div>`;
     }              
     html += `</div></div>`;
-    
+
   } else if (id == 'rent') {
     html = `
       <div class="col-md-6" style="box-shadow: 1px 1px 4px rgb(0 0 0 / 20%);">
@@ -331,7 +334,8 @@ const MediaHeaderConversions = {
   "Facebook Page / Group Link": "fb_link",
   "Instagram Link": "ig_link",
   "Others Link 1": "link_1",
-  "Others Link 2": "link_2"
+  "Others Link 2": "link_2",
+  "本人及其social media （Facebook, Instagram or youtube) 同意卡加里香港人會館將轉載及介紹其social media。": "agree",
 };
 
 const RentHeaderConversions = {

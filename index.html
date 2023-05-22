@@ -59,10 +59,18 @@
           <h2>Soical Media</h2>
           <div class="row">
             <div class="col-md-6 input-container">
+              <div class="col-md-12 input-container rounded border border-success mb-2">            
+                Steps:
+                <ol>
+                  <li>Download Excel</li>
+                  <li>Remove <b>Column C</b> "Name ( 姓名 ) :  * This information will not disclose to public *"</li>
+                  <li>Remove <b>Column D</b> "Contact Email ( 聯繫電子郵件 ) :   * This information will not disclose to public *"</li>
+                  <li>Remove <b>Column N</b> "Next time tickets"</li>
+                </ol>
+              </div>
               <textarea id="media-header" name="media-header" class="form-control" style="height: 170px"></textarea>
               <textarea id="media-input" name="media-input" class="form-control"></textarea>
-              <div class="row mt-4">
-                
+              <div class="row mt-4">                
                 <div class="col-md-12">
                   <button class="btn btn-primary btn-block" id="split-btn" onclick="splitData('media')">Split</button>
                 </div>
