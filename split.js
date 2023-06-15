@@ -4,7 +4,7 @@ $('#job-header').text(`時間戳記	Company Name	Employment Type	Job Title	Job D
 
 /* Media */
 // $('#media-header').text('時間戳記	電郵地址	Type (種類)	Name of your Social Media (專頁/頻道名稱) 	Which social media are you using now ( 您用緊邊一個社交媒體 )??	Youtube Channel Link  	Facebook Page / Group Link	Instagram Link 	Others Link 1	Others Link 2');
-$('#media-header').text('時間戳記	電郵地址	Type (種類)	Name of your Social Media (專頁/頻道名稱) 	Which social media are you using now ( 您用緊邊一個社交媒體 )??	Youtube Channel Link  	Facebook Page / Group Link	Instagram Link	Others Link 1	Others Link 2	本人及其social media （Facebook, Instagram or youtube) 同意卡加里香港人會館將轉載及介紹其social media。	');
+$('#media-header').text('時間戳記	電郵地址	Type (種類)	Name of your Social Media (專頁/頻道名稱) 	Which social media are you using now ( 您用緊邊一個社交媒體 )??	Youtube Channel Link	Facebook Page / Group Link	Instagram Link	Others Link 1	Others Link 2	本人及其social media （Facebook, Instagram or youtube) 同意卡加里香港人會館將轉載及介紹其social media。		');
 /* End Media */
 
 /* Rent */
