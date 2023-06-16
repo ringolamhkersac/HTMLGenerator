@@ -4,8 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Excel Data Splitter</title>
+  <!-- <link rel="stylesheet" href="https://unpkg.com/@stackoverflow/stacks/dist/css/stacks.min.css">   -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="style.css">
+  
 </head>
 
 <body>
@@ -32,7 +34,7 @@
             <option value=",">Comma (,)</option>
           </select>
         </div>
-        <div id="last-update">Page Last Update: May 22, 2023</div>
+        <div id="last-update">Page Last Update: Jun 15, 2023</div>
       </nav>
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
         <div id="job-content" class="content show">
@@ -48,7 +50,8 @@
               </div>
             </div>
             <div class="col-md-6 result-container">
-              <pre><code class="language-html" id="job-result">Result will be displayed here</code></pre>
+              <pre class="s-code-block language-html" id="job-result">Result will be displayed here</pre>
+              <!-- <pre><code class="language-html" id="job-result">Result will be displayed here</code></pre> -->
               <button class="btn btn-primary copy-btn" id="copy-btn" onclick="copyResult('job')">Copy</button>
               <div id="job-error"></div>
             </div>
@@ -77,7 +80,7 @@
               </div>
             </div>
             <div class="col-md-6 result-container">
-              <pre><code class="language-html" id="media-result">Result will be displayed here</code></pre>
+              <pre class="s-code-block language-html linenums" id="media-result">Result will be displayed here</pre>
               <button class="btn btn-primary copy-btn" id="copy-btn" onclick="copyResult('media')">Copy</button>
               <div id="error"></div>
             </div>
@@ -92,15 +95,15 @@
             <div class="col-md-6 input-container">
               <textarea id="rent-header" name="rent-header" class="form-control" style="height: 170px"></textarea>
               <textarea id="rent-input" name="rent-input" class="form-control"></textarea>
-              <div class="row mt-4">
-                
+              <div class="row mt-4">                
                 <div class="col-md-12">
                   <button class="btn btn-primary btn-block" id="split-btn" onclick="splitData('rent')">Split</button>
                 </div>
               </div>
             </div>
             <div class="col-md-6 result-container">
-              <pre><code class="language-html" id="rent-result">Result will be displayed here</code></pre>
+              <pre class="s-code-block language-html" id="rent-result">Result will be displayed here</pre>
+              <!-- <pre><code class="language-html" id="rent-result">Result will be displayed here</code></pre> -->
               <button class="btn btn-primary copy-btn" id="copy-btn" onclick="copyResult('rent')">Copy</button>
               <div id="error"></div>
             </div>
