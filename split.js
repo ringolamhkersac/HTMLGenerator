@@ -146,7 +146,7 @@ function generateListing(id, res) {
       `;
     } else if (id == 'media') {    
       html += `<div class="col-md-4" style="box-shadow: 1px 1px 4px rgb(0 0 0 / 20%);margin: 20px;">
-                  <div class="latest_content" style="margin: 15px !important;">              
+                  <div class="latest_content" style="margin: 15px !important; min-height: 145px;">              
                   <div class="latest_title home" style="color:black; min-height: 50px !important;">
                     ${data.channelName}
                   </div>
