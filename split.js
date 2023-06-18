@@ -167,12 +167,7 @@ function generateListing(id, res) {
                   <i style="font-size: 40px;" class="fa fa-youtube-square" aria-hidden="true"></i>
                 </a>`;
       }                              
-      html += `</div>`;              
-      if (data.youtube_link) { 
-        html += `<a href="${data.youtube_link}" target="_blank">
-                  <i style="font-size: 40px;" class="fa fa-youtube-square" aria-hidden="true"></i>
-                </a>`;
-      }                 
+      html += `</div>`; 
       if (data.link_1) { 
         html += `<div class="latest_description" style="float: right;">
                   <a href="${data.link_1}" target="_blank">
